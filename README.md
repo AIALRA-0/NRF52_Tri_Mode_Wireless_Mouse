@@ -1,4 +1,6 @@
-### 中文版
+[中文说明](#中文说明) | [English Description](#english-description)
+
+### 中文说明
 
 ---
 
@@ -82,7 +84,7 @@ DK 能用的 IO 太乱，等评估板画好再说吧。
 
 ---
 
-### English Version
+### English Description
 
 ---
 
