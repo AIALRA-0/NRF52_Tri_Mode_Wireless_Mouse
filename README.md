@@ -61,16 +61,16 @@
   - **ESB RF**：USB 断连，模式选择按钮低电平。
 - **DPI 更改**：预设 5 组 DPI，两个按键用于前向/后向循环。
 - **状态指示灯**：
-  - <span style="color:green;">**绿色**</span>：连接。
-  - <span style="color:red;">**红色**</span>：BLE 断连，需要重新开始配对。
-  - <span style="color:yellow;">**黄色**</span>：无操作，设备自行挂起。
-  - <span style="color:blue;">**蓝色**</span>：闪烁，BLE 配对。
-  - <span style="color:purple;">**紫色**</span>：需要主机删除已有的设备信息后才能运行。
+  - **绿色**：连接。
+  - **红色**：BLE 断连，需要重新开始配对。
+  - **黄色**：无操作，设备自行挂起。
+  - **蓝色**：闪烁，BLE 配对。
+  - **紫色**：需要主机删除已有的设备信息后才能运行。
 - **电量指示灯**：
-  - <span style="color:green;">**绿色**</span>：电量高于 40%。
-  - <span style="color:yellow;">**黄色**</span>：电量高于 20%。
-  - <span style="color:red;">**红色**</span>：电量低于 20%。
-- **RGB**：没人用 RGB，有空就写。
+  - **绿色**：电量高于 40%。
+  - **黄色**：电量高于 20%。
+  - **红色**：电量低于 20%。
+- **RGB**：没人用 RGB，有空就写
 
 ---
 
