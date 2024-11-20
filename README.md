@@ -4,7 +4,7 @@
 
 ---
 
-### **NRF52_Tri_Mode_Wireless_Mouse**  
+## **NRF52_Tri_Mode_Wireless_Mouse**  
 基于 NRF52 平台的游戏鼠标，支持蓝牙、USB 和 ESB (RF) 模式。
 
 ---
@@ -88,7 +88,7 @@ DK 能用的 IO 太乱，等评估板画好再说吧。
 
 ---
 
-### **NRF52_Tri_Mode_Wireless_Mouse**  
+## **NRF52_Tri_Mode_Wireless_Mouse**  
 A gaming mouse based on the NRF52 platform, supporting Bluetooth, USB, and ESB (RF) modes.
 
 ---
