@@ -1,0 +1,77 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: aialr aialr, aialr, LIC=WHYH9-4ICKI-9US4U-SJA77-CXLRR-Z8UX4
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.38.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCOMPLIER506\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      Segger\JL2CM3.dll V2.71.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Users\aialr\Desktop\NRF\LEGACY\AIALRA USB\examples\peripheral\gm_mouse\pca10056\blank\arm5_no_packs\Gaming_Mouse.uvprojx
+Project File Date:  11/17/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil_v5\ARM\ARMCOMPLIER506\Bin'
+Build target 'nrf52840_xxaa'
+compiling peer_data_storage.c...
+..\..\..\..\..\..\components\ble\peer_manager\peer_data_storage.c(390): warning:  #940-D: missing return statement at end of non-void function "pds_init" 
+  }
+..\..\..\..\..\..\components\ble\peer_manager\peer_data_storage.c(365): warning:  #177-D: variable "ret"  was declared but never referenced
+      ret_code_t ret;
+..\..\..\..\..\..\components\ble\peer_manager\peer_data_storage.c(254): warning:  #177-D: function "peer_ids_load"  was declared but never referenced
+  static void peer_ids_load()
+..\..\..\..\..\..\components\ble\peer_manager\peer_data_storage.c(279): warning:  #177-D: function "fds_evt_handler"  was declared but never referenced
+  static void fds_evt_handler(fds_evt_t const * const p_fds_evt)
+..\..\..\..\..\..\components\ble\peer_manager\peer_data_storage.c: 4 warnings, 0 errors
+compiling peer_manager.c...
+linking...
+Program Size: Code=91632 RO-data=10924 RW-data=1704 ZI-data=17360  
+FromELF: creating hex file...
+".\_build\nrf52840_xxaa.axf" - 0 Error(s), 4 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.6.0.pack
+                ARM.CMSIS.5.6.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.3.0
+
+Package Vendor: NordicSemiconductor
+                http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.40.3.pack
+                NordicSemiconductor.nRF_DeviceFamilyPack.8.40.3
+                Nordic Semiconductor nRF ARM devices Device Family Pack with BSD license.
+   * Component: Startup Version: 8.40.3
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_nrf52840_xxaa
+  D:/Keil_v5/ARM/Packs/ARM/CMSIS/5.6.0/CMSIS/Core/Include
+  D:/Keil_v5/ARM/Packs/NordicSemiconductor/nRF_DeviceFamilyPack/8.40.3/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.3.0
+
+   * Component: NordicSemiconductor::Device:Startup:8.40.3
+      Include file:  Device/Include/system_nrf.h
+      Source file:   Device/Source/arm/arm_startup_nrf52840.s
+      Source file:   Device/Source/system_nrf52.c
+      Include file:  Device/Include/system_nrf52840.h
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

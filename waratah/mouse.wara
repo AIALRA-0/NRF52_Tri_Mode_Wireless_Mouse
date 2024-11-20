@@ -1,0 +1,41 @@
+# 定义一个应用集合
+[[applicationCollection]]  
+# 指定集合的用途，包括通用桌面和鼠标
+usage = ['Generic Desktop', 'Mouse']
+
+    # 定义与此集合相关的输入报告
+    [[applicationCollection.inputReport]]  
+
+        # 定义物理集合
+        [[applicationCollection.inputReport.physicalCollection]]  
+        # 指定物理集合的用途，包括通用桌面和指针
+        usage = ['Generic Desktop', 'Pointer']
+
+            # 定义X轴的可变输入项
+            [[applicationCollection.inputReport.physicalCollection.variableItem]]  
+            # 指定使用X轴
+            usage = ['Generic Desktop', 'X']
+            # 指定X轴大小为8位
+            sizeInBits = 8
+            # 使用最大有符号数范围作为逻辑值范围
+            logicalValueRange = 'maxSignedSizeRange'
+            # 报告标志设置为相对模式
+            reportFlags = ['relative']
+
+            # 定义Y轴的可变输入项
+            [[applicationCollection.inputReport.physicalCollection.variableItem]]  
+            # 指定使用Y轴
+            usage = ['Generic Desktop', 'Y']
+            # 指定Y轴大小为8位
+            sizeInBits = 8
+            # 使用最大有符号数范围作为逻辑值范围
+            logicalValueRange = 'maxSignedSizeRange'
+            # 报告标志设置为相对模式
+            reportFlags = ['relative']
+
+            # 定义按钮的可变输入项
+            [[applicationCollection.inputReport.physicalCollection.variableItem]]  
+            # 指定使用范围，包括Button 1到Button 3
+            usageRange = ['Button', 'Button 1', 'Button 3']
+            # 逻辑值范围为0（未按下）到1（按下）
+            logicalValueRange = [0, 1]

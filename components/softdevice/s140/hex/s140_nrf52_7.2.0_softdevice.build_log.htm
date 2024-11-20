@@ -1,0 +1,70 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: aialr aialr, aialr, LIC=WHYH9-4ICKI-9US4U-SJA77-CXLRR-Z8UX4
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.38.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCOMPLIER506\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      Segger\JL2CM3.dll V2.71.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Users\aialr\Desktop\NRF52840\AIALRA Study USB\examples\peripheral\flash_fds\pca10056\s140\arm5_no_packs\flash_fds_s140_pca10056.uvprojx
+Project File Date:  09/19/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil_v5\ARM\ARMCOMPLIER506\Bin'
+Rebuild target 'flash_s140_nrf52_7.2.0_softdevice'
+Before Build - User command #1: attrib +R ..\..\..\..\..\..\components\softdevice\s140\hex\\*
+compiling cli.c...
+..\..\..\cli.c(43): error:  #5: cannot open source input file "app_error.h": No such file or directory
+  #include "app_error.h"    // 包含APP错误处理的库
+..\..\..\cli.c: 0 warnings, 1 error
+compiling nrf_drv_clock.c...
+..\..\..\..\..\..\integration\nrfx\legacy\nrf_drv_clock.c(41): error:  #5: cannot open source input file "nordic_common.h": No such file or directory
+  #include <nordic_common.h>
+..\..\..\..\..\..\integration\nrfx\legacy\nrf_drv_clock.c: 0 warnings, 1 error
+compiling main.c...
+D:\Keil_v5\ARM\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h(149): error:  #5: cannot open source input file "core_cm4.h": No such file or directory
+  #include "core_cm4.h"                           /*!< ARM Cortex-M4 processor and core peripherals                              */
+..\..\..\main.c: 0 warnings, 1 error
+"..\..\..\..\..\..\components\softdevice\s140\hex\s140_nrf52_7.2.0_softdevice.hex" - 3 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: NordicSemiconductor
+                http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.44.1.pack
+                NordicSemiconductor.nRF_DeviceFamilyPack.8.44.1
+                Nordic Semiconductor nRF ARM devices Device Family Pack with BSD license.
+   * Component: Startup Version: 8.44.1
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_flash_s140_nrf52_7.2.0_softdevice
+  D:/Keil_v5/ARM/Packs/NordicSemiconductor/nRF_DeviceFamilyPack/8.44.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: NordicSemiconductor::Device:Startup:8.44.1
+      Source file:   Device/Source/arm/arm_startup_nrf52840.s
+      Include file:  Device/Include/system_nrf52840.h
+      Include file:  Device/Include/system_nrf.h
+      Source file:   Device/Source/system_nrf52.c
+Target not created.
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>

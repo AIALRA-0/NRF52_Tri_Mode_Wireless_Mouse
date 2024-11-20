@@ -1,0 +1,19 @@
+测试
+	上电连接：
+		windows：
+			未配对：可以
+			已配对： 需要重新配对，无法直连，有设备存在时提示 <info> peer_manager_handler: Connection security failed: role: Peripheral, conn_handle: 0x0, procedure: Bonding, error: 133	
+		安卓：
+		ios：
+	重新配对：
+		windows：
+			未配对：
+			已配对：
+		安卓：
+		ios：
+	主机断连：
+		windows：
+			未配对：
+			已配对： 
+		安卓：
+		ios：

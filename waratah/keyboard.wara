@@ -1,0 +1,38 @@
+# 定义一个应用集合
+[[applicationCollection]] 
+
+# 指定集合的用途，包括通用桌面和键盘
+usage = ['Generic Desktop', 'Keyboard']
+
+    # 定义与此集合相关的输入报告
+    [[applicationCollection.inputReport]]  
+
+        # 特殊按钮
+        # 注意：Windows 将特殊按钮仅应用于后续键，因此必须在报告中提前出现。
+        [[applicationCollection.inputReport.variableItem]]
+
+        # 指定使用范围
+        usageRange = ['Keyboard/Keypad', 'Keyboard LeftControl', 'Keyboard Right GUI']
+
+        # 指定逻辑值范围，0表示未按下，1表示按下
+        logicalValueRange = [0, 1]
+
+        # 常规按钮
+        [[applicationCollection.inputReport.arrayItem]]
+
+        # 指定使用范围
+        usageRange = ['Keyboard/Keypad', 'ErrorRollOver', 'Keyboard Application']
+
+        # 指定常规按钮的数量为8
+        count = 8
+
+    # LED灯
+    [[applicationCollection.outputReport]]
+
+        [[applicationCollection.outputReport.variableItem]]
+
+        # 指定使用范围
+        usageRange = ['LED', 'Num Lock', 'Kana']
+
+        # 指定逻辑值范围，0表示关闭，1表示开启
+        logicalValueRange = [0, 1]
