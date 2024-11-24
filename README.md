@@ -75,12 +75,14 @@
 ---
 
 ### **引脚**
-DK 能用的 IO 太乱，等评估板画好再说吧。
+IO请参考SDK_Config - Application，都排好了
 
 ---
 
 ### **评估版**
-在画了.jpg  
+很好，我懒得画了，但是原理图都画好了，现成的在demo_pcb文件夹里可以用，PCB框架也有了，只是不想打了，再说
+![image](https://github.com/user-attachments/assets/d50e6244-5bce-4dd2-bf31-8135e37d2d7d)
+
 
 ---
 
@@ -162,9 +164,10 @@ A gaming mouse based on the NRF52 platform, supporting Bluetooth, USB, and ESB (
 ---
 
 ### **Pins**
-DK's available IOs are too messy. Will finalize after evaluation board design.
+For IO, please refer to the SDK_Config - Application; everything is already arranged.
 
 ---
 
 ### **Evaluation Board**
-In progress.jpg
+Great, I’m too lazy to draw it, but the schematic is already done and available in the demo_pcb folder for use. The PCB framework is also ready; I just don’t feel like assembling it for now.
+![image](https://github.com/user-attachments/assets/d50e6244-5bce-4dd2-bf31-8135e37d2d7d)
