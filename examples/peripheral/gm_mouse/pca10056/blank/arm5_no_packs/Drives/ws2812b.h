@@ -49,11 +49,6 @@
 // 引入Nordic芯片相关定义
 #include "nrf.h"
 
-// Exported defines ***********************************************************
-#define PIXEL_COUNT              ( 1u )  // 定义像素数量为1
-#define WS2812B_PIN              ( 8u ) // 定义GPIO引脚编号为8
-#define WS2812B_PORT             ( 1u )  // 定义GPIO端口编号为1
-
 // Exported types *************************************************************
 /// \brief WS2812B的状态枚举类型
 typedef enum

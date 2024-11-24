@@ -213,6 +213,7 @@ void mouse_connection_mode_update(void)
 					WS2812B_setConnectedLight();
 					
 					// 打开电池更新计时器
+					nrf_gpio_pin_clear(MOUSE_ADC_CONTROL_PIN); // 开启电池测量 PMOS
 					mouse_battery_update_timer_start();
 					
 				}
@@ -243,6 +244,7 @@ void mouse_connection_mode_update(void)
 				mouse_wait_for_ble_connection();
 				
 				// 打开电池更新计时器
+				nrf_gpio_pin_clear(MOUSE_ADC_CONTROL_PIN); // 开启电池测量 PMOS
 				mouse_battery_update_timer_start();
 		}
 		else if(!mark_use_mode_esb && !wireless_mode_choose_ble)
@@ -269,6 +271,7 @@ void mouse_connection_mode_update(void)
 				paw3399_high_performance_mode();
 			
 				// 打开电池更新计时器
+				nrf_gpio_pin_clear(MOUSE_ADC_CONTROL_PIN); // 开启电池测量 PMOS
 				mouse_battery_update_timer_start();
 		}
 }
@@ -773,6 +776,10 @@ void mouse_gpio_init(void)
 		
 		nrf_gpio_cfg_input(MOUSE_MODE, NRF_GPIO_PIN_PULLUP); // 配置模式选择GPIO为输入模式，使用上拉电阻
 		nrf_gpio_cfg_input(BTN_BLE_PAIRING, NRF_GPIO_PIN_PULLUP); // 配置模式选择GPIO为输入模式，使用上拉电阻
+	
+		nrf_gpio_cfg_output(MOUSE_ADC_CONTROL_PIN); // 配置模式选择GPIO为输出
+	
+		nrf_gpio_pin_set(MOUSE_ADC_CONTROL_PIN); // 默认拉高
 }
 
 /**
@@ -827,7 +834,7 @@ void mouse_saadc_init(void)
 {
     ret_code_t err_code;
     nrf_saadc_channel_config_t channel_config =
-        NRF_DRV_SAADC_DEFAULT_CHANNEL_CONFIG_SE(NRF_SAADC_INPUT_AIN1);  // 配置单端SAADC通道 P0.03
+        NRF_DRV_SAADC_DEFAULT_CHANNEL_CONFIG_SE(MOUSE_ADC_PIN);  // 配置单端SAADC通道
 
     err_code = nrf_drv_saadc_init(NULL, mouse_saadc_callback);  // 初始化SAADC
     APP_ERROR_CHECK(err_code);  // 检查错误

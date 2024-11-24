@@ -21,7 +21,7 @@ static uint16_t rest2_downshift_mult = 64;	// 默认值为64，对应寄存器值0x05
 /****************************************
  *             SPIM变量                  *
  ****************************************/
-static const nrfx_spim_t spim = NRFX_SPIM_INSTANCE(SPIM_INSTANCE);  /**< 定义 SPIM 实例 */
+static const nrfx_spim_t spim = NRFX_SPIM_INSTANCE(PAW3399_SPIM_INSTANCE);  /**< 定义 SPIM 实例 */
 static volatile bool spim_xfer_done;  /**< 标志位，用于指示 SPIM 传输是否完成 */
 static uint8_t m_tx_buf[2];  /**< 发送缓冲区，存储1字节地址+1字节数据 */
 static uint8_t m_rx_buf[13];  /**< 接收缓冲区，存储接收到的12字节数据 */

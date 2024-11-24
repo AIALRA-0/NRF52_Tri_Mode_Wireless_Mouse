@@ -64,9 +64,9 @@
 // WS2812B高电平持续时间的PWM值
 #define WS2812B_1                ( 15u | 0x8000 ) // 15 ticks @ 16 MHz equals 937.5 ns
 // WS2812B低电平持续时间的PWM值
-#define WS2812B_0                ( 6u | 0x8000 )  // 6 ticks @ 16 MHz equals 375 ns
+#define WS2812B_0                ( 6u | 0x8000 )  // 6 ticks @ 16 MHz equa ls 375 ns
 // WS2812B引脚映射
-#define WS2812B                  NRF_GPIO_PIN_MAP(WS2812B_PORT,WS2812B_PIN)
+#define WS2812B                  WS2812B_PIN
 // WS2812B复位低电平时间长度
 #define WS2812B_RESET_LOW        45
 

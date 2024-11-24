@@ -4,84 +4,11 @@
 #include "ble_device.h"
 
 /***************************************
- *              宏定义             		 *
- ***************************************/
-// 设备信息定义
-#define DEVICE_NAME                     "AIALRA_GAMING_MOUSE"                                /**< @brief 设备名称，将包含在广播数据中。 */
-#define MANUFACTURER_NAME               "AIALRA"                       /**< @brief 制造商名称，将传递给设备信息服务。 */
-
-// 供应商和产品信息定义
-#define PNP_ID_VENDOR_ID_SOURCE         0x02                                        /**< @brief 供应商ID来源。 */
-#define PNP_ID_VENDOR_ID                0x1915                                      /**< @brief 供应商ID。 */
-#define PNP_ID_PRODUCT_ID               0xEEEE                                      /**< @brief 产品ID。 */
-#define PNP_ID_PRODUCT_VERSION          0x0001                                      /**< @brief 产品版本。 */
-
-// BLE配置参数定义
-#define APP_BLE_OBSERVER_PRIO           3                                           /**< @brief 应用的BLE观察者优先级，通常无需修改。 */
-#define APP_BLE_CONN_CFG_TAG            1                                           /**< @brief SoftDevice BLE配置标识。 */
-
-// 电池服务定义
-#define BATTERY_LEVEL_MEAS_INTERVAL     APP_TIMER_TICKS(2000)                       /**< @brief 电池电量测量间隔（ticks）。 */
-#define MIN_BATTERY_LEVEL               81                                          /**< @brief 模拟电池的最小电量。 */
-#define MAX_BATTERY_LEVEL               100                                         /**< @brief 模拟电池的最大电量。 */
-#define BATTERY_LEVEL_INCREMENT         1                                           /**< @brief 每次模拟电池电量测量的增量。 */
-
-// 连接参数定义
-/*lint -emacro(524, MIN_CONN_INTERVAL) // Loss of precision */
-#define MIN_CONN_INTERVAL               MSEC_TO_UNITS(7.5, UNIT_1_25_MS)            /**< @brief 最小连接间隔 */
-#define MAX_CONN_INTERVAL               MSEC_TO_UNITS(7.5, UNIT_1_25_MS)             /**< @brief 最大连接间隔 */
-#define SLAVE_LATENCY                   0                                          	/**< @brief 从设备延迟。 */
-#define CONN_SUP_TIMEOUT                MSEC_TO_UNITS(3000, UNIT_10_MS)             /**< @brief 连接监督超时（3000毫秒）。 */
-#define FIRST_CONN_PARAMS_UPDATE_DELAY  APP_TIMER_TICKS(5000)                       /**< @brief 从触发事件（连接或通知开始）到首次调用连接参数更新的时间（5秒）。 */
-#define NEXT_CONN_PARAMS_UPDATE_DELAY   APP_TIMER_TICKS(30000)                      /**< @brief 首次连接参数更新后每次调用的时间间隔（30秒）。 */
-#define MAX_CONN_PARAM_UPDATE_COUNT     5                                           /**< @brief 在放弃连接参数协商之前的最大尝试次数。 */
-
-// Swift Pair功能定义
-#define SWIFT_PAIR_SUPPORTED            1                                           /**< @brief 支持Swift Pair功能。 */
-#if SWIFT_PAIR_SUPPORTED == 1
-#define MICROSOFT_VENDOR_ID             0x0006                                      /**< @brief Microsoft供应商ID。 */
-#define MICROSOFT_BEACON_ID             0x03                                        /**< @brief Microsoft Beacon ID，表示支持Swift Pair功能。 */
-#define MICROSOFT_BEACON_SUB_SCENARIO   0x00                                        /**< @brief Microsoft Beacon子场景，用于指示如何通过Swift Pair配对。 */
-#define RESERVED_RSSI_BYTE              0x80                                        /**< @brief 保留的RSSI字节，用于保持向前和向后兼容性。 */
-#endif
-
-// 广播参数定义
-#define APP_ADV_DIRECT_INTERVAL         0x0020                                   	/**< @brief 直接广播间隔（单位为0.625毫秒，对应于20毫秒）。 */
-#define APP_ADV_FAST_INTERVAL           0x0028                                      /**< @brief 快速广播间隔（单位为0.625毫秒，对应于25毫秒）。 */
-#define APP_ADV_SLOW_INTERVAL           0x00A0                                      /**< @brief 慢速广播间隔（单位为0.625毫秒，对应于100毫秒）。 */
-#define APP_ADV_DIRECT_DURATION         1000                                        /**< @brief 直接广播的持续时间，单位为10毫秒。 */
-#define APP_ADV_FAST_DURATION           3000                                        /**< @brief 快速广播的持续时间，单位为10毫秒。 */
-#define APP_ADV_SLOW_DURATION           18000                                       /**< @brief 慢速广播的持续时间，单位为10毫秒。 */
-
-// 安全参数定义
-#define SEC_PARAM_BOND                  1                                           /**< @brief 是否进行配对。 */
-#define SEC_PARAM_MITM                  0                                           /**< @brief 是否需要中间人保护。 */
-#define SEC_PARAM_LESC                  0                                           /**< @brief 是否启用LE安全连接。 */
-#define SEC_PARAM_KEYPRESS              0                                           /**< @brief 是否启用按键通知。 */
-#define SEC_PARAM_IO_CAPABILITIES       BLE_GAP_IO_CAPS_NONE                        /**< @brief 无I/O能力。 */
-#define SEC_PARAM_OOB                   0                                           /**< @brief 无带外数据。 */
-#define SEC_PARAM_MIN_KEY_SIZE          7                                           /**< @brief 最小加密密钥大小。 */
-#define SEC_PARAM_MAX_KEY_SIZE          16                                          /**< @brief 最大加密密钥大小。 */
-
-// HID鼠标配置定义
-#define BASE_USB_HID_SPEC_VERSION       0x0101                                      /**< @brief 应用实现的基本USB HID规范版本号。 */
-#define INPUT_REPORT_COUNT              3                                           /**< @brief 本应用中的输入报告数量。 */
-#define INPUT_REP_BUTTONS_LEN           3                                           /**< @brief 包含按钮数据的鼠标输入报告的长度。 */
-#define INPUT_REP_MOVEMENT_LEN          4                                           /**< @brief 包含运动数据的鼠标输入报告的长度。 */
-#define INPUT_REP_MEDIA_PLAYER_LEN      1                                           /**< @brief 包含媒体播放器数据的鼠标输入报告的长度。 */
-#define INPUT_REP_BUTTONS_INDEX         0                                           /**< @brief 包含按钮数据的鼠标输入报告的索引。 */
-#define INPUT_REP_MOVEMENT_INDEX        1                                           /**< @brief 包含运动数据的鼠标输入报告的索引。 */
-#define INPUT_REP_MPLAYER_INDEX         2                                           /**< @brief 包含媒体播放器数据的鼠标输入报告的索引。 */
-#define INPUT_REP_REF_BUTTONS_ID        1                                           /**< @brief 包含按钮数据的鼠标输入报告的引用ID。 */
-#define INPUT_REP_REF_MOVEMENT_ID       2                                           /**< @brief 包含运动数据的鼠标输入报告的引用ID。 */
-#define INPUT_REP_REF_MPLAYER_ID        3                                           /**< @brief 包含媒体播放器数据的鼠标输入报告的引用ID。 */
-
-/***************************************
  *              BLE 标志           	  *	
  **************************************/ 
 static bool mark_in_boot_mode = false;                                    /**< @brief 当前协议模式，指示是否处于引导模式。 */
 
-static uint8_t connection_count = 0; // 连接数
+static uint8_t connection_count = 0; 																			// 连接数
 
 static bool mark_change_address = false;                                    /**< @brief delete后是否更改地址 */
 
@@ -880,7 +807,6 @@ bool has_valid_peer(void)
     NRF_LOG_WARNING("No valid peer addresses found.");
     return false; // 没有有效地址
 }
-
 
 bool has_device_identities(void)
 {

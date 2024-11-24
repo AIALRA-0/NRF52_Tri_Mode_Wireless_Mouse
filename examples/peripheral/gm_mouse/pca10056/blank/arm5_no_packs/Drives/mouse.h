@@ -21,20 +21,13 @@
 /***************************************
  *             宏定义            	 	*
  ***************************************/
-//SAADC
-#define FILTER_WINDOW_SIZE 5     // 滑动窗口大小
-
-// 调度器
+ // 调度器
 #define SCHED_MAX_EVENT_DATA_SIZE       APP_TIMER_SCHED_EVENT_DATA_SIZE             /**< @brief 调度器事件的最大大小。 */
 #ifdef SVCALL_AS_NORMAL_FUNCTION
 #define SCHED_QUEUE_SIZE                80                                          /**< @brief 调度器队列中的最大事件数。对于序列化应用需要更多。 */
 #else
 #define SCHED_QUEUE_SIZE                40                                          /**< @brief 调度器队列中的最大事件数。 */
 #endif
-
-// 电池
-# define BATTERY_HIGH_LIM 40
-# define BATTERY_LOW_LIM 20
 
 typedef enum {
     BATTERY_LOW,
