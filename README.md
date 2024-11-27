@@ -49,7 +49,7 @@
 ---
 
 ### **功能**
-- **鼠标**：默认 2 主按键，1 中键按键，1 滚轮，1 传感器，扫描方式为轮询。
+- **鼠标**：默认 2 主按键，1 中键按键，2侧键，1 滚轮，1 传感器，扫描方式为轮询。
 - **USB**：基于 USB HID，最高 1000Hz。
 - **BLE**：基于 BLE HID，最高 133Hz。
 - **ESB**：基于 ESB RF -> USB HID，最高 1000Hz。
@@ -136,7 +136,7 @@ A gaming mouse based on the NRF52 platform, supporting Bluetooth, USB, and ESB (
 ---
 
 ### **Features**
-- **Mouse**: Default 2 main buttons, 1 middle button, 1 scroll wheel, 1 sensor, with polling scanning.  
+- **Mouse**: Default 2 main buttons, 2 side buttons，1 middle button, 1 scroll wheel, 1 sensor, with polling scanning.  
 - **USB**: USB HID-based, max polling rate 1000Hz.  
 - **BLE**: BLE HID-based, max polling rate 133Hz.  
 - **ESB**: ESB RF -> USB HID-based, max polling rate 1000Hz.  
